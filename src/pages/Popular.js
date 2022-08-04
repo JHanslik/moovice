@@ -1,6 +1,6 @@
 import React, { useEffect, useState } from "react";
-import { Link } from "react-router-dom";
 import Cards from "../components/Cards";
+import Header from "../components/Header";
 
 function Popular(props) {
     const [popularMovies, setPopularMovies] = useState(null);
@@ -36,39 +36,27 @@ function Popular(props) {
 
     console.log(popularMovies);
     return (
-        <div className="container">
-            <header className="d-flex justify-content-around align-items-center">
-                <h1>Popular</h1>
-                <nav>
-                    <Link className="mx-2" to={`/`}>
-                        Home
-                    </Link>
-                    <Link className="mx-2" to={`/weekly`}>
-                        Weekly
-                    </Link>
-                    <Link className="mx-2" to={`/popular`}>
-                        Popular
-                    </Link>
-                    <Link className="mx-2" to={`/favorites`}>
-                        Favorites
-                    </Link>
-                </nav>
-            </header>
-            <main className="d-flex flex-wrap">
-                {popularMovies.results.map((movie) => {
-                    return (
-                        <Cards
-                            image={`https://image.tmdb.org/t/p/w300/${movie.poster_path}`}
-                            title={movie.title}
-                            year={movie.release_date}
-                            description={movie.overview}
-                            addFavorite={() => {
-                                handleClickFavorite(movie.id);
-                            }}
-                            nameButton="Add Favorite"
-                        />
-                    );
-                })}
+        <div>
+            <Header />
+
+            <main className="container text-center">
+                <h2 className="pageTitle">Popular</h2>
+                <div className="d-flex justify-content-center flex-wrap">
+                    {popularMovies.results.map((movie) => {
+                        return (
+                            <Cards
+                                image={`https://image.tmdb.org/t/p/w300/${movie.poster_path}`}
+                                title={movie.title}
+                                year={movie.release_date}
+                                description={movie.overview}
+                                addFavorite={() => {
+                                    handleClickFavorite(movie.id);
+                                }}
+                                nameButton="Add Favorite"
+                            />
+                        );
+                    })}
+                </div>
             </main>
         </div>
     );
