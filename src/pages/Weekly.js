@@ -6,7 +6,7 @@ function Weekly(props) {
         <div>
             <Header />
             <main className="text-center">
-                <h2 className="pageTitle">Weekly</h2>
+                <div></div>
             </main>
         </div>
     );

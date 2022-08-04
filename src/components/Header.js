@@ -1,22 +1,23 @@
 import React from "react";
-import { Link } from "react-router-dom";
+import { NavLink } from "react-router-dom";
 
 function Header(props) {
     return (
-        <header className="d-flex justify-content-around align-items-center">
-            <Link className="mx-1 link" to={`/`}>
-                <h1>Moovice !</h1>
-            </Link>
+        <header className="d-flex flex-column justify-content-around align-items-center pt-2">
+            <h1>Moovice !</h1>
             <nav>
-                <Link className="mx-1 link" to={`/weekly`}>
+                <NavLink className={`link`} to={`/`}>
+                    Home
+                </NavLink>
+                <NavLink className={`link`} to={`/weekly`}>
                     Weekly
-                </Link>
-                <Link className="mx-1 link" to={`/popular`}>
+                </NavLink>
+                <NavLink className={`link`} to={`/popular`}>
                     Popular
-                </Link>
-                <Link className="mx-1 link" to={`/favorites`}>
+                </NavLink>
+                <NavLink className={`link`} to={`/favorites`}>
                     Favorites
-                </Link>
+                </NavLink>
             </nav>
         </header>
     );

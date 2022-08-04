@@ -4,9 +4,7 @@ function Home(props) {
     return (
         <div>
             <Header />
-            <main className="text-center">
-                <h2 className="pageTitle">Home</h2>
-            </main>
+            <main className="text-center"></main>
         </div>
     );
 }

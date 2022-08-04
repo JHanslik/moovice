@@ -43,14 +43,37 @@ header {
     width: 100vw;
     z-index: 1;
 }
+nav {
+    margin: 10px 0;
+}
+
 .link {
     text-decoration: none;
     color: #e1e1e1;
+    font-size: 30px;
+    margin: 0 20px;
+    padding: 5px;
+    border-radius: 100px;
+}
+.link:hover {
+    color: #e1e1e1;
+}
+.link.active {
+    text-decoration: none;
+    background-color: #e1e1e1;
+    color: #000000;
 }
 .pageTitle {
     color: #e1e1e1;
 }
 
 main {
-    margin-top: 60px;
+    margin-top: 110px;
+}
+
+@media screen and (max-width: 992px) {
+    .link {
+        font-size: 20px;
+        margin: 0 5px;
+    }
 }
