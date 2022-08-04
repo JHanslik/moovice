@@ -43,8 +43,12 @@ function Cards({ movie, removeFunctionRender }) {
             <h2 className="card-title">{title}</h2>
             <p className="card-text">{release_date}</p>
             <p className="card-text">{overview}</p>
-            <button className="btn btn-primary" onClick={handleFavoriteClick}>
-                {ids.includes(id) ? "Remove Favorite" : "Add Favorite"}
+            <button className="favorite" onClick={handleFavoriteClick}>
+                {ids.includes(id) ? (
+                    <i class="bi bi-heart-fill"></i>
+                ) : (
+                    <i class="bi bi-heart"></i>
+                )}
             </button>
         </div>
     );
