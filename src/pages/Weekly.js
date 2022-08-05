@@ -4,8 +4,7 @@ import Header from "../components/Header";
 function Weekly(props) {
     return (
         <div>
-            <Header />
-            <main className="text-center">
+            <main className="text-center row mb-5">
                 <div></div>
             </main>
         </div>

@@ -35,22 +35,24 @@ function Cards({ movie, removeFunctionRender }) {
     };
 
     return (
-        <div className="card justify-content-between m-4">
-            <img
-                src={`https://image.tmdb.org/t/p/w300/${poster_path}`}
-                alt={title}
-            />
-            <h2 className="card-title">{title}</h2>
-            <p className="card-text">{release_date}</p>
-            <p className="card-text">{overview}</p>
-            <button className="favorite" onClick={handleFavoriteClick}>
-                {ids.includes(id) ? (
-                    <i class="bi bi-heart-fill"></i>
-                ) : (
-                    <i class="bi bi-heart"></i>
-                )}
-            </button>
-        </div>
+        <article className="p-2 col-12 col-md-4 col-lg-3 mx-auto">
+            <div className="card h-100 p-2">
+                <img
+                    src={`https://image.tmdb.org/t/p/w300/${poster_path}`}
+                    alt={title}
+                />
+                <h2 className="card-title">{title}</h2>
+                <p className="card-text">{release_date}</p>
+                <p className="card-text">{overview}</p>
+                <button className="favorite" onClick={handleFavoriteClick}>
+                    {ids.includes(id) ? (
+                        <i class="bi bi-heart-fill"></i>
+                    ) : (
+                        <i class="bi bi-heart"></i>
+                    )}
+                </button>
+            </div>
+        </article>
     );
 }
 

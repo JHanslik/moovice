@@ -19,16 +19,10 @@ function Popular() {
 
     console.log();
     return (
-        <div>
-            <Header />
-
-            <main className="container text-center">
-                <div className="d-flex justify-content-center flex-wrap">
-                    {popularMovies.map((movie) => {
-                        return <Cards key={movie.title} movie={movie} />;
-                    })}
-                </div>
-            </main>
+        <div className="text-center row mb-5">
+            {popularMovies.map((movie) => {
+                return <Cards key={movie.title} movie={movie} />;
+            })}
         </div>
     );
 }

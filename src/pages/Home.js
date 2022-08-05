@@ -3,8 +3,7 @@ import Header from "../components/Header";
 function Home(props) {
     return (
         <div>
-            <Header />
-            <main className="text-center"></main>
+            <main className="text-center row mb-5"></main>
         </div>
     );
 }

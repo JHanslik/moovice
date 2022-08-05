@@ -34,21 +34,16 @@ function Favorites() {
         setMovies(clonedMovies);
     };
     return (
-        <div>
-            <Header />
-            <main className="text-center">
-                <div className="d-flex justify-content-center flex-wrap">
-                    {movies.map((movie) => {
-                        return (
-                            <Cards
-                                key={movie.title}
-                                movie={movie}
-                                removeFunctionRender={handleClickRemoveFavorite}
-                            />
-                        );
-                    })}
-                </div>
-            </main>
+        <div className="text-center row mb-5">
+            {movies.map((movie) => {
+                return (
+                    <Cards
+                        key={movie.title}
+                        movie={movie}
+                        removeFunctionRender={handleClickRemoveFavorite}
+                    />
+                );
+            })}
         </div>
     );
 }
