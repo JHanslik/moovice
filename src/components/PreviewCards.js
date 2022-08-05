@@ -1,5 +1,6 @@
 import { useEffect, useState } from "react";
 import { Link } from "react-router-dom";
+import DefaultPoster from "./Assets/DefaultPoster.png";
 
 function PreviewCards({ movie, removeFunctionRender }) {
     const { title, release_date, poster_path, id } = movie;
@@ -36,24 +37,31 @@ function PreviewCards({ movie, removeFunctionRender }) {
     };
 
     return (
-        <article className="p-2 col-12 col-md-4 col-lg-3 mx-auto text-center previewCard">
-            <Link className="cardLink" to={`/movie/${id}`}>
-                <div className="card h-100 p-2">
+        <article className="p-2 col-6 col-md-4 col-lg-3 mx-auto text-center previewCard">
+            <div className="card h-100 cardEffect">
+                <Link className="cardLink" to={`/movie/${id}`}>
                     <img
-                        src={`https://image.tmdb.org/t/p/w300/${poster_path}`}
+                        className="card-img-top"
+                        src={
+                            poster_path
+                                ? `https://image.tmdb.org/t/p/w300/${poster_path}`
+                                : DefaultPoster
+                        }
                         alt={title}
                     />
-                    <h3 className="card-title">{title}</h3>
-                    <p className="card-text">{release_date}</p>
-                    <button className="favorite" onClick={handleFavoriteClick}>
-                        {ids.includes(id) ? (
-                            <i className="bi bi-heart-fill"></i>
-                        ) : (
-                            <i className="bi bi-heart"></i>
-                        )}
-                    </button>
-                </div>
-            </Link>
+                    <div className="p-3 card-element d-flex flex-column align-items-center justify-content-center">
+                        <h3 className="card-title">{title}</h3>
+                        <p className="card-text">{release_date}</p>
+                    </div>
+                </Link>
+                <button className="favorite" onClick={handleFavoriteClick}>
+                    {ids.includes(id) ? (
+                        <i className="bi bi-heart-fill"></i>
+                    ) : (
+                        <i className="bi bi-heart"></i>
+                    )}
+                </button>
+            </div>
         </article>
     );
 }
