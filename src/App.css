@@ -56,6 +56,13 @@ nav {
     margin: 10px 0;
 }
 
+.cardLink {
+    text-decoration: none;
+    color: #000000;
+}
+.cardLink:hover {
+    color: #000000;
+}
 .link {
     text-decoration: none;
     color: #e1e1e1;

@@ -1,5 +1,6 @@
 import { useEffect, useState } from "react";
 import PreviewCards from "../components/PreviewCards";
+import moment from "moment";
 
 function Home(props) {
     const [latestMovie, setLatestMovies] = useState([]);
@@ -40,8 +41,10 @@ function Home(props) {
     };
 
     const fetchUpcoming = async () => {
+        const tomorrow = moment().add(1, "days").format("YYYY-MM-DD");
+        const sevenDaysFuture = moment().add(7, "days").format("YYYY-MM-DD");
         const request = await fetch(
-            `https://api.themoviedb.org/3/movie/upcoming?api_key=c553055e26e069d72e96bea7b56dc984`
+            `https://api.themoviedb.org/3/discover/movie?primary_release_date.gte=${tomorrow}&primary_release_date.lte=${sevenDaysFuture}&api_key=c553055e26e069d72e96bea7b56dc984`
         );
         const response = await request.json();
         setUpcomingMovies(response.results);

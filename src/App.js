@@ -1,4 +1,5 @@
 import { BrowserRouter, Routes, Route } from "react-router-dom";
+import MovieDetails from "./pages/MovieDetails";
 import "./App.css";
 import Header from "./components/Header";
 import Favorites from "./pages/Favorites";
@@ -17,6 +18,7 @@ function App() {
                     <Route path="/weekly" element={<Weekly />} />
                     <Route path="/popular" element={<Popular />} />
                     <Route path="/favorites" element={<Favorites />} />
+                    <Route path="/movie/:id" element={<MovieDetails />} />
                     <Route path="*" element={<NotFound />} />
                 </Routes>
             </main>
