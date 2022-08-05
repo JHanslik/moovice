@@ -37,7 +37,7 @@ function Cards({ movie, removeFunctionRender }) {
     };
 
     return (
-        <article className="p-2 col-12 col-md-4 col-lg-3 mx-auto text-center">
+        <article className="p-2 col-10 col-md-4 col-lg-3 mx-auto text-center">
             <div className="card h-100">
                 <Link className="cardLink" to={`/movie/${id}`}>
                     <img
