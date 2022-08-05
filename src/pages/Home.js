@@ -25,7 +25,8 @@ function Home(props) {
 
     const fetchTop = async () => {
         const request = await fetch(
-            `https://api.themoviedb.org/3/movie/top_rated?api_key=c553055e26e069d72e96bea7b56dc984`
+            `
+            https://api.themoviedb.org/3/movie/top_rated?api_key=c553055e26e069d72e96bea7b56dc984&page=1&region=FR`
         );
         const response = await request.json();
         console.log(response.results);
@@ -34,7 +35,7 @@ function Home(props) {
 
     const fetchNowPlaying = async () => {
         const request = await fetch(
-            `https://api.themoviedb.org/3/movie/now_playing?api_key=c553055e26e069d72e96bea7b56dc984`
+            `https://api.themoviedb.org/3/movie/now_playing?api_key=c553055e26e069d72e96bea7b56dc984&page=1&region=FR`
         );
         const response = await request.json();
         setNowPlayingMovies(response.results);
@@ -44,7 +45,7 @@ function Home(props) {
         const tomorrow = moment().add(1, "days").format("YYYY-MM-DD");
         const sevenDaysFuture = moment().add(7, "days").format("YYYY-MM-DD");
         const request = await fetch(
-            `https://api.themoviedb.org/3/discover/movie?primary_release_date.gte=${tomorrow}&primary_release_date.lte=${sevenDaysFuture}&api_key=c553055e26e069d72e96bea7b56dc984`
+            `https://api.themoviedb.org/3/movie/upcoming?api_key=c553055e26e069d72e96bea7b56dc984&page=1&region=FR`
         );
         const response = await request.json();
         setUpcomingMovies(response.results);
