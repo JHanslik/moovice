@@ -6,7 +6,7 @@ function Cards({ movie, removeFunctionRender }) {
 
     useEffect(() => {
         let stringifiedFavoriteIds = localStorage.getItem("favoriteIds");
-        const favoriteIds = JSON.parse(stringifiedFavoriteIds);
+        const favoriteIds = JSON.parse(stringifiedFavoriteIds) || [];
         setIds(favoriteIds);
     }, []);
 
