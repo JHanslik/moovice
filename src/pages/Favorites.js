@@ -37,8 +37,8 @@ function Favorites() {
         <div>
             <Header />
             <main className="text-center">
-                <div className="d-flex justify-content-center flex-wrap ">
-                    {movies.map((movie, i) => {
+                <div className="d-flex justify-content-center flex-wrap">
+                    {movies.map((movie) => {
                         return (
                             <Cards
                                 key={movie.title}
