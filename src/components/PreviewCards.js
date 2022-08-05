@@ -37,7 +37,7 @@ function PreviewCards({ movie, removeFunctionRender }) {
     };
 
     return (
-        <article className="p-2 col-6 col-md-4 col-lg-3 mx-auto text-center previewCard">
+        <article className="p-2 col-5 col-md-4 col-lg-3 mx-auto text-center previewCard">
             <div className="card h-100 cardEffect">
                 <Link className="cardLink" to={`/movie/${id}`}>
                     <img
