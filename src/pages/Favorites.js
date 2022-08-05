@@ -1,6 +1,5 @@
 import { useEffect, useState } from "react";
 import Cards from "../components/Cards";
-import Header from "../components/Header";
 
 function Favorites() {
     const [movies, setMovies] = useState([]);
@@ -34,7 +33,7 @@ function Favorites() {
         setMovies(clonedMovies);
     };
     return (
-        <div className="text-center row mb-5">
+        <div className="row mb-5">
             {movies.map((movie) => {
                 return (
                     <Cards

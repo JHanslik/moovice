@@ -1,6 +1,5 @@
 import React, { useEffect, useState } from "react";
 import Cards from "../components/Cards";
-import Header from "../components/Header";
 
 function Popular() {
     const [popularMovies, setPopularMovies] = useState([]);
@@ -19,7 +18,7 @@ function Popular() {
 
     console.log();
     return (
-        <div className="text-center row mb-5">
+        <div className="row mb-5">
             {popularMovies.map((movie) => {
                 return <Cards key={movie.title} movie={movie} />;
             })}
