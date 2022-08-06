@@ -3,7 +3,7 @@ import { NavLink } from "react-router-dom";
 
 function Header(props) {
     return (
-        <header className="d-flex flex-column justify-content-around align-items-center pt-2">
+        <header className="d-flex flex-column justify-content-around align-items-center py-2">
             <h1>Moovice !</h1>
             <nav>
                 <NavLink className={`link button`} to={`/`}>
