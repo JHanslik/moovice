@@ -11,6 +11,7 @@ function ModalVideo({ open, video, movie, handleClickClose }) {
                     className="modalVideo"
                     src={video}
                     title={`${title} trailer`}
+                    allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture"
                     allowFullScreen
                 ></iframe>
             </div>

@@ -137,12 +137,28 @@ h2 {
 .trailer-button {
     background-color: #5e5eed;
     font-weight: bold;
+    font-size: 25px;
 }
 .trailer-button:hover {
     background-color: #161616;
     color: #5e5eed;
     border: 1px solid #5e5eed;
     font-weight: bold;
+}
+.genre-buttons {
+    background-color: #5e5eed;
+    font-weight: bold;
+}
+.genre-buttons:hover {
+    background-color: #161616;
+    color: #5e5eed;
+    border: 1px solid #5e5eed;
+    font-weight: bold;
+}
+
+/* Providers part */
+.logo-watch {
+    width: 60px;
 }
 
 /* Modal part */
