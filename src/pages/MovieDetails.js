@@ -81,7 +81,7 @@ function MovieDetails() {
     return (
         <main onLoad={window.scroll(0, 0)}>
             <section className="d-flex justify-content-center align-items-center my-5 details">
-                <div className="align-self-lg-start">
+                <div className="align-self-lg-start text-center">
                     <img
                         className="rounded mb-3"
                         src={`https://image.tmdb.org/t/p/w300/${movie.poster_path}`}
