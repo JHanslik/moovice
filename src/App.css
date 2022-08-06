@@ -155,6 +155,9 @@ h2 {
     border: 1px solid #5e5eed;
     font-weight: bold;
 }
+.details-img {
+    width: 300px;
+}
 
 /* Providers part */
 .logo-watch {

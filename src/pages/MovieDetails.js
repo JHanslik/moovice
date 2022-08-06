@@ -1,6 +1,7 @@
 import { useEffect, useState } from "react";
 import { useParams } from "react-router-dom";
 import ModalVideo from "../components/ModalVideo";
+import DefaultPoster from "../components/Assets/DefaultPoster.png";
 
 function MovieDetails() {
     const params = useParams();
@@ -34,12 +35,16 @@ function MovieDetails() {
         const trailer = response.results.find(
             (video) => video.type === "Trailer"
         );
-        setVideos(`https://www.youtube.com/embed/${trailer.key}?autoplay=1`);
+        if (trailer.key) {
+            setVideos(
+                `https://www.youtube.com/embed/${trailer.key}?autoplay=1`
+            );
+        }
     };
 
     const fetchProviders = async () => {
         const providers = await fetch(
-            `https://api.themoviedb.org/3/movie/299534/watch/providers?api_key=c553055e26e069d72e96bea7b56dc984`
+            `https://api.themoviedb.org/3/movie/${params.id}/watch/providers?api_key=c553055e26e069d72e96bea7b56dc984`
         );
         const response = await providers.json();
         console.log(response.results.FR);
@@ -78,13 +83,18 @@ function MovieDetails() {
             setIds(favoriteIds);
         }
     };
+    console.log(movie);
     return (
         <main onLoad={window.scroll(0, 0)}>
             <section className="d-flex justify-content-center align-items-center my-5 details">
                 <div className="align-self-lg-start text-center">
                     <img
-                        className="rounded mb-3"
-                        src={`https://image.tmdb.org/t/p/w300/${movie.poster_path}`}
+                        className="rounded mb-3 details-img"
+                        src={
+                            movie.poster_path
+                                ? `https://image.tmdb.org/t/p/w300/${movie.poster_path}`
+                                : DefaultPoster
+                        }
                         alt={`${movie.title} poster`}
                     />
                     <button
@@ -101,7 +111,7 @@ function MovieDetails() {
                             </div>
                         )}
                     </button>
-                    <div className="d-flex justify-content-between">
+                    <div className="d-flex justify-content-evenly">
                         {movie.genres &&
                             movie.genres.map((genre) => {
                                 return (
@@ -120,23 +130,34 @@ function MovieDetails() {
                         {movie.title}
                     </h2>
                     <p className="text-center fs-3">{movie.tagline}</p>
-                    <p>
-                        <span className="colorDetail">Synopsis: </span>
-                        {movie.overview}
-                    </p>
+                    {movie.overview && (
+                        <p>
+                            <span className="colorDetail">Synopsis: </span>
+                            {movie.overview}
+                        </p>
+                    )}
+
                     <div>
-                        <p>
-                            <span className="colorDetail">Release Date: </span>
-                            {movie.release_date}
-                        </p>
-                        <p>
-                            <span className="colorDetail">Status: </span>
-                            {movie.status}
-                        </p>
-                        <p>
-                            <span className="colorDetail">Runtime: </span>
-                            {movie.runtime} min
-                        </p>
+                        {movie.release_date && (
+                            <p>
+                                <span className="colorDetail">
+                                    Release Date:{" "}
+                                </span>
+                                {movie.release_date}
+                            </p>
+                        )}
+                        {movie.status && (
+                            <p>
+                                <span className="colorDetail">Status: </span>
+                                {movie.status}
+                            </p>
+                        )}
+                        {movie.runtime && (
+                            <p>
+                                <span className="colorDetail">Runtime: </span>
+                                {movie.runtime} min
+                            </p>
+                        )}
                     </div>
                     <div>
                         {movie.budget !== 0 && (
@@ -160,62 +181,80 @@ function MovieDetails() {
                             </a>
                         </p>
                     )}
-
-                    <button
-                        type="button"
-                        className="btn trailer-button"
-                        onClick={handleClickTrailer}
-                    >
-                        Click to see the trailer
-                    </button>
-                    <ModalVideo
-                        open={openModal}
-                        movie={movie}
-                        video={videos}
-                        handleClickClose={handleClickClose}
-                    />
-                    <div className="mt-3">
-                        <p className="colorDetail">Streaming:</p>
-                        {providers.flatrate &&
-                            providers.flatrate.map((provider) => {
-                                return (
-                                    <img
-                                        key={provider.provider_name}
-                                        className="logo-watch rounded m-1"
-                                        src={`https://image.tmdb.org/t/p/original/${provider.logo_path}`}
-                                        alt={provider.provider_name}
-                                    />
-                                );
-                            })}
-                    </div>
-                    <div className="mt-3">
-                        <p className="colorDetail">Rent:</p>
-                        {providers.rent &&
-                            providers.rent.map((provider) => {
-                                return (
-                                    <img
-                                        key={provider.provider_name}
-                                        className="logo-watch rounded m-1"
-                                        src={`https://image.tmdb.org/t/p/original/${provider.logo_path}`}
-                                        alt={provider.provider_name}
-                                    />
-                                );
-                            })}
-                    </div>
-                    <div className="mt-3">
-                        <p className="colorDetail">Buy:</p>
-                        {providers.buy &&
-                            providers.buy.map((provider) => {
-                                return (
-                                    <img
-                                        key={provider.provider_name}
-                                        className="logo-watch rounded m-1"
-                                        src={`https://image.tmdb.org/t/p/original/${provider.logo_path}`}
-                                        alt={provider.provider_name}
-                                    />
-                                );
-                            })}
-                    </div>
+                    {videos.length > 0 && (
+                        <div>
+                            <button
+                                type="button"
+                                className="btn trailer-button"
+                                onClick={handleClickTrailer}
+                            >
+                                Click to see the trailer
+                            </button>
+                            <ModalVideo
+                                open={openModal}
+                                movie={movie}
+                                video={videos}
+                                handleClickClose={handleClickClose}
+                            />
+                        </div>
+                    )}
+                    {providers && (
+                        <div>
+                            <div className="mt-3">
+                                {providers.flatrate && (
+                                    <div>
+                                        <p className="colorDetail">
+                                            Streaming:
+                                        </p>
+                                        {providers.flatrate.map((provider) => {
+                                            return (
+                                                <img
+                                                    key={provider.provider_name}
+                                                    className="logo-watch rounded m-1"
+                                                    src={`https://image.tmdb.org/t/p/original/${provider.logo_path}`}
+                                                    alt={provider.provider_name}
+                                                />
+                                            );
+                                        })}
+                                    </div>
+                                )}
+                            </div>
+                            <div className="mt-3">
+                                {providers.rent && (
+                                    <div>
+                                        <p className="colorDetail">Rent:</p>
+                                        {providers.rent.map((provider) => {
+                                            return (
+                                                <img
+                                                    key={provider.provider_name}
+                                                    className="logo-watch rounded m-1"
+                                                    src={`https://image.tmdb.org/t/p/original/${provider.logo_path}`}
+                                                    alt={provider.provider_name}
+                                                />
+                                            );
+                                        })}
+                                    </div>
+                                )}
+                            </div>
+                            <div className="mt-3">
+                                {providers.buy && (
+                                    <div>
+                                        <p className="colorDetail">Buy:</p>
+                                        {providers.buy.map((provider) => {
+                                            return (
+                                                <img
+                                                    key={provider.provider_name}
+                                                    className="logo-watch rounded m-1"
+                                                    src={`https://image.tmdb.org/t/p/original/${provider.logo_path}`}
+                                                    alt={provider.provider_name}
+                                                />
+                                            );
+                                        })}
+                                    </div>
+                                )}
+                            </div>
+                        </div>
+                    )}
                 </div>
             </section>
             <section>

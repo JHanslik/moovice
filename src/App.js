@@ -7,6 +7,7 @@ import Home from "./pages/Home";
 import NotFound from "./pages/NotFound";
 import Popular from "./pages/Popular";
 import Weekly from "./pages/Weekly";
+import Search from "./pages/Search";
 
 function App() {
     return (
@@ -19,6 +20,7 @@ function App() {
                     <Route path="/popular" element={<Popular />} />
                     <Route path="/favorites" element={<Favorites />} />
                     <Route path="/movie/:id" element={<MovieDetails />} />
+                    <Route path="/seach/:input" element={<Search />} />
                     <Route path="*" element={<NotFound />} />
                 </Routes>
             </main>

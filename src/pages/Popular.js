@@ -17,7 +17,6 @@ function Popular() {
         setPopularMovies(response.results);
     };
 
-    console.log();
     return (
         <div className="row mb-5">
             {popularMovies.map((movie) => {

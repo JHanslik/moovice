@@ -58,7 +58,6 @@ function Home(props) {
                             key={latestMovie.title}
                             movie={latestMovie}
                         />
-                        ;
                     </article>
                 </section>
                 <section className="sectionPreview">
