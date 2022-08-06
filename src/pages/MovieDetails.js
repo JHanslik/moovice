@@ -30,8 +30,7 @@ function MovieDetails(props) {
         const trailer = response.results.find(
             (video) => video.type === "Trailer"
         );
-        console.log(`https://www.youtube.com/watch?v=${trailer.key}`);
-        setVideos(`https://www.youtube.com/embed/${trailer.key}?rel=0`);
+        setVideos(`https://www.youtube.com/embed/${trailer.key}`);
     };
     const handleClickTrailer = () => {
         setOpenModal(true);
@@ -41,7 +40,7 @@ function MovieDetails(props) {
     };
     console.log(movie);
     return (
-        <main>
+        <main onLoad={window.scroll(0, 0)}>
             <section className="d-flex justify-content-center align-items-center my-5 details">
                 <img
                     className="rounded"
@@ -54,10 +53,10 @@ function MovieDetails(props) {
                     </h2>
                     <p className="text-center fs-3">{movie.tagline}</p>
 
-                    {movie.genre &&
+                    {movie.genres &&
                         movie.genres.map((genre) => {
                             return (
-                                <button key={movie.title}>{genre.name}</button>
+                                <button key={genre.name}>{genre.name}</button>
                             );
                         })}
                     <p>
