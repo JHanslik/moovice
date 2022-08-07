@@ -116,7 +116,7 @@ function MovieDetails() {
                             movie.genres.map((genre) => {
                                 return (
                                     <button
-                                        className="btn genre-buttons"
+                                        className="btn genre-buttons mx-1"
                                         key={genre.name}
                                     >
                                         {genre.name}

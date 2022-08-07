@@ -45,7 +45,7 @@ function Cards({ movie, removeFunctionRender }) {
                         src={`${
                             poster_path
                                 ? `https://image.tmdb.org/t/p/w300/${poster_path}`
-                                : { DefaultPoster }
+                                : DefaultPoster
                         }`}
                         alt={title}
                     />

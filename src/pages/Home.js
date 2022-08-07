@@ -1,5 +1,6 @@
 import { useEffect, useState } from "react";
 import PreviewCards from "../components/PreviewCards";
+import { Link } from "react-router-dom";
 
 function Home(props) {
     const [latestMovie, setLatestMovies] = useState([]);
@@ -49,49 +50,49 @@ function Home(props) {
     };
 
     return (
-        <div>
-            <main className="row mb-5">
-                <section className="sectionPreview">
+        <main className="row mb-5">
+            <section className="mt-5">
+                <div>
                     <h2>Latest</h2>
-                    <article className="preview">
-                        <PreviewCards
-                            key={latestMovie.title}
-                            movie={latestMovie}
-                        />
-                    </article>
-                </section>
-                <section className="sectionPreview">
-                    <h2>Top rated</h2>
-                    <article className="preview d-flex">
-                        {topMovies.map((movie) => {
-                            return (
-                                <PreviewCards key={movie.title} movie={movie} />
-                            );
-                        })}
-                    </article>
-                </section>
-                <section className="sectionPreview">
-                    <h2>Now playing</h2>
-                    <article className="preview d-flex">
-                        {nowPlayingMovies.map((movie) => {
-                            return (
-                                <PreviewCards key={movie.title} movie={movie} />
-                            );
-                        })}
-                    </article>
-                </section>
-                <section className="sectionPreview">
-                    <h2>Upcoming</h2>
-                    <article className="preview d-flex">
-                        {upcomingMovies.map((movie) => {
-                            return (
-                                <PreviewCards key={movie.title} movie={movie} />
-                            );
-                        })}
-                    </article>
-                </section>
-            </main>
-        </div>
+                </div>
+                <article className="preview">
+                    <PreviewCards key={latestMovie.title} movie={latestMovie} />
+                </article>
+            </section>
+            <section className="mt-5">
+                <div className="d-flex align-items-center">
+                    <h2 className="me-3">Top rated</h2>
+                    <Link to={`/top`}>See more</Link>
+                </div>
+                <article className="preview d-flex">
+                    {topMovies.map((movie) => {
+                        return <PreviewCards key={movie.title} movie={movie} />;
+                    })}
+                </article>
+            </section>
+            <section className="mt-5">
+                <div className="d-flex align-items-center">
+                    <h2 className="me-3">Now playing</h2>
+                    <Link to={`/nowplaying`}>See more</Link>
+                </div>
+                <article className="preview d-flex">
+                    {nowPlayingMovies.map((movie) => {
+                        return <PreviewCards key={movie.title} movie={movie} />;
+                    })}
+                </article>
+            </section>
+            <section className="mt-5">
+                <div className="d-flex align-items-center">
+                    <h2 className="me-3">Upcoming</h2>
+                    <Link to={`/upcoming`}>See more</Link>
+                </div>
+                <article className="preview d-flex">
+                    {upcomingMovies.map((movie) => {
+                        return <PreviewCards key={movie.title} movie={movie} />;
+                    })}
+                </article>
+            </section>
+        </main>
     );
 }
 

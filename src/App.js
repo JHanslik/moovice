@@ -8,6 +8,9 @@ import NotFound from "./pages/NotFound";
 import Popular from "./pages/Popular";
 import Weekly from "./pages/Weekly";
 import Search from "./pages/Search";
+import Top from "./pages/Top";
+import NowPlaying from "./pages/NowPlaying";
+import Upcoming from "./pages/Upcoming";
 
 function App() {
     return (
@@ -19,7 +22,11 @@ function App() {
                     <Route path="/weekly" element={<Weekly />} />
                     <Route path="/popular" element={<Popular />} />
                     <Route path="/favorites" element={<Favorites />} />
+                    <Route path="/top" element={<Top />} />
+                    <Route path="/nowplaying" element={<NowPlaying />} />
+                    <Route path="/upcoming" element={<Upcoming />} />
                     <Route path="/movie/:id" element={<MovieDetails />} />
+
                     <Route path="/seach/:input" element={<Search />} />
                     <Route path="*" element={<NotFound />} />
                 </Routes>

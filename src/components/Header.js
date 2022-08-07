@@ -6,16 +6,16 @@ function Header(props) {
         <header className="d-flex flex-column justify-content-around align-items-center py-2">
             <h1>Moovice !</h1>
             <nav>
-                <NavLink className={`link button`} to={`/`}>
+                <NavLink className={`btn link button`} to={`/`}>
                     Home
                 </NavLink>
-                <NavLink className={`link button`} to={`/weekly`}>
+                <NavLink className={`btn link button`} to={`/weekly`}>
                     Weekly
                 </NavLink>
-                <NavLink className={`link button`} to={`/popular`}>
+                <NavLink className={`btn link button`} to={`/popular`}>
                     Popular
                 </NavLink>
-                <NavLink className={`link button`} to={`/favorites`}>
+                <NavLink className={`btn link button`} to={`/favorites`}>
                     Favorites
                 </NavLink>
             </nav>
