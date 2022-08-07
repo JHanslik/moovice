@@ -29,7 +29,6 @@ function Home(props) {
             https://api.themoviedb.org/3/movie/top_rated?api_key=c553055e26e069d72e96bea7b56dc984&page=1&region=FR`
         );
         const response = await request.json();
-        console.log(response.results);
         setTopMovies(response.results);
     };
 

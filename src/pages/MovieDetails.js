@@ -47,7 +47,6 @@ function MovieDetails() {
             `https://api.themoviedb.org/3/movie/${params.id}/watch/providers?api_key=c553055e26e069d72e96bea7b56dc984`
         );
         const response = await providers.json();
-        console.log(response.results.FR);
         setProviders(response.results.FR);
     };
 
@@ -83,7 +82,6 @@ function MovieDetails() {
             setIds(favoriteIds);
         }
     };
-    console.log(movie);
     return (
         <main onLoad={window.scroll(0, 0)}>
             <section className="d-flex justify-content-center align-items-center my-5 details">

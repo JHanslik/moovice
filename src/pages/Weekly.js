@@ -27,7 +27,6 @@ function Weekly(props) {
         const lastWeekDate = moment().subtract(7, "d").format("YYYY-MM-DD");
         return lastWeekDate;
     };
-    console.log(presentDate(), lastWeek());
     return (
         <div>
             <main className="row mb-5">

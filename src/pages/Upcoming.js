@@ -30,7 +30,6 @@ function Upcoming(props) {
             }&region=FR`
         );
         const response = await request.json();
-        console.log(response.results);
         if (response.results.length !== 0) {
             setPage(page + 1);
         }
