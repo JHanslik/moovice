@@ -99,7 +99,7 @@ nav {
 .link {
     text-decoration: none;
     color: #e1e1e1;
-    font-size: 30px;
+    font-size: 30px !important;
 }
 .link:hover {
     border: 1px solid #444444;
@@ -204,11 +204,14 @@ h2 {
 
     /* modal part */
 }
-@media screen and (max-width: 500px) {
+@media screen and (max-width: 540px) {
     /* modal part */
 
     .modalContainer {
         top: 50%;
         height: 20%;
+    }
+    .link {
+        font-size: 16px !important;
     }
 }

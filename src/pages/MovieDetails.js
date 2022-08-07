@@ -111,12 +111,17 @@ function MovieDetails() {
                             </div>
                         )}
                     </button>
-                    <div className="d-flex justify-content-evenly">
+                </div>
+                <div className="ms-lg-5 mt-4 mt-lg-0 details-right">
+                    <h2 className="details-title text-center fs-1">
+                        {movie.title}
+                    </h2>
+                    <div className="d-flex flex-wrap justify-content-evenly">
                         {movie.genres &&
                             movie.genres.map((genre) => {
                                 return (
                                     <button
-                                        className="btn genre-buttons mx-1"
+                                        className="btn genre-buttons m-1"
                                         key={genre.name}
                                     >
                                         {genre.name}
@@ -124,11 +129,6 @@ function MovieDetails() {
                                 );
                             })}
                     </div>
-                </div>
-                <div className="ms-lg-5 mt-4 mt-lg-0 details-right">
-                    <h2 className="details-title text-center fs-1">
-                        {movie.title}
-                    </h2>
                     <p className="text-center fs-3">{movie.tagline}</p>
                     {movie.overview && (
                         <p>
