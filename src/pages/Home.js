@@ -51,14 +51,6 @@ function Home(props) {
     return (
         <main className="row mb-5">
             <section className="mt-5">
-                <div>
-                    <h2>Latest</h2>
-                </div>
-                <article className="preview">
-                    <PreviewCards key={latestMovie.title} movie={latestMovie} />
-                </article>
-            </section>
-            <section className="mt-5">
                 <div className="d-flex align-items-center">
                     <h2 className="me-3">Top rated</h2>
                     <Link to={`/top/1`}>See more</Link>
@@ -89,6 +81,14 @@ function Home(props) {
                     {upcomingMovies.map((movie) => {
                         return <PreviewCards key={movie.title} movie={movie} />;
                     })}
+                </article>
+            </section>
+            <section className="mt-5">
+                <div>
+                    <h2>Latest</h2>
+                </div>
+                <article className="preview">
+                    <PreviewCards key={latestMovie.title} movie={latestMovie} />
                 </article>
             </section>
         </main>
