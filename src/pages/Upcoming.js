@@ -1,9 +1,12 @@
 import { useEffect, useState } from "react";
 import Cards from "../components/Cards";
+import { Link, useParams } from "react-router-dom";
 
-function Upcoming(props) {
+function Upcoming() {
+    const params = useParams();
     const [upcomingMovies, setUpcomingMovies] = useState([]);
-    const [page, setPage] = useState(1);
+    const [totalPages, setTotalPages] = useState(0);
+    const [page, setPage] = useState(Number(params.page));
 
     useEffect(() => {
         fetchUpcoming();
@@ -21,6 +24,7 @@ function Upcoming(props) {
         );
         const response = await request.json();
         setUpcomingMovies(response.results);
+        setTotalPages(response.total_pages);
     };
 
     const fetchTemp = async () => {
@@ -43,6 +47,12 @@ function Upcoming(props) {
     const pageNumberPlus = () => {
         fetchTemp();
     };
+    const firstPage = () => {
+        setPage(1);
+    };
+    const lastPage = () => {
+        setPage(totalPages);
+    };
 
     return (
         <main onLoad={window.scroll(0, 0)}>
@@ -52,14 +62,42 @@ function Upcoming(props) {
                     return <Cards key={movie.title} movie={movie} />;
                 })}
             </section>
-            <section className="d-flex justify-content-center align-items-center mb-5">
-                <button className="btn btn-primary" onClick={pageNumberMinus}>
-                    Previous
-                </button>
-                <p className="mx-5 fs-4 page">Page: {page}</p>
-                <button className="btn btn-primary" onClick={pageNumberPlus}>
-                    Next
-                </button>
+            <section className="d-flex justify-content-around align-items-center mb-5">
+                <Link to={`/upcoming/1`}>
+                    <button className="btn btn-primary" onClick={firstPage}>
+                        <span className="material-icons">
+                            keyboard_double_arrow_left
+                        </span>
+                    </button>
+                </Link>
+                <Link to={`/upcoming/${page - 1}`}>
+                    <button
+                        className="btn btn-primary"
+                        onClick={pageNumberMinus}
+                    >
+                        <span className="material-icons">
+                            keyboard_arrow_left
+                        </span>
+                    </button>
+                </Link>
+                <p className="fs-4 page">{page}</p>
+                <Link to={`/upcoming/${page + 1}`}>
+                    <button
+                        className="btn btn-primary"
+                        onClick={pageNumberPlus}
+                    >
+                        <span className="material-icons">
+                            keyboard_arrow_right
+                        </span>
+                    </button>
+                </Link>
+                <Link to={`/upcoming/${totalPages}`}>
+                    <button className="btn btn-primary" onClick={lastPage}>
+                        <span className="material-icons">
+                            keyboard_double_arrow_right
+                        </span>
+                    </button>
+                </Link>
             </section>
         </main>
     );

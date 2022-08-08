@@ -61,7 +61,7 @@ function Home(props) {
             <section className="mt-5">
                 <div className="d-flex align-items-center">
                     <h2 className="me-3">Top rated</h2>
-                    <Link to={`/top`}>See more</Link>
+                    <Link to={`/top/1`}>See more</Link>
                 </div>
                 <article className="preview d-flex">
                     {topMovies.map((movie) => {
@@ -72,7 +72,7 @@ function Home(props) {
             <section className="mt-5">
                 <div className="d-flex align-items-center">
                     <h2 className="me-3">Now playing</h2>
-                    <Link to={`/nowplaying`}>See more</Link>
+                    <Link to={`/nowplaying/1`}>See more</Link>
                 </div>
                 <article className="preview d-flex">
                     {nowPlayingMovies.map((movie) => {
@@ -83,7 +83,7 @@ function Home(props) {
             <section className="mt-5">
                 <div className="d-flex align-items-center">
                     <h2 className="me-3">Upcoming</h2>
-                    <Link to={`/upcoming`}>See more</Link>
+                    <Link to={`/upcoming/1`}>See more</Link>
                 </div>
                 <article className="preview d-flex">
                     {upcomingMovies.map((movie) => {

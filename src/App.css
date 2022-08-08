@@ -214,4 +214,7 @@ h2 {
     .link {
         font-size: 16px !important;
     }
+    main {
+        margin-top: 80px;
+    }
 }

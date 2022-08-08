@@ -22,9 +22,9 @@ function App() {
                     <Route path="/weekly" element={<Weekly />} />
                     <Route path="/popular" element={<Popular />} />
                     <Route path="/favorites" element={<Favorites />} />
-                    <Route path="/top" element={<Top />} />
-                    <Route path="/nowplaying" element={<NowPlaying />} />
-                    <Route path="/upcoming" element={<Upcoming />} />
+                    <Route path="/top/:page" element={<Top />} />
+                    <Route path="/nowplaying/:page" element={<NowPlaying />} />
+                    <Route path="/upcoming/:page" element={<Upcoming />} />
                     <Route path="/movie/:id" element={<MovieDetails />} />
 
                     <Route path="/seach/:input" element={<Search />} />

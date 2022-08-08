@@ -50,7 +50,7 @@ function PreviewCards({ movie, removeFunctionRender }) {
                         alt={title}
                     />
                     <div className="p-2 card-element d-flex flex-column align-items-center justify-content-center">
-                        <h3 className="card-title">{title}</h3>
+                        <h4 className="card-title">{title}</h4>
                         <p className="card-text">{release_date}</p>
                     </div>
                 </Link>
