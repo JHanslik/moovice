@@ -83,14 +83,14 @@ function Home(props) {
                     })}
                 </article>
             </section>
-            <section className="mt-5">
+            {/* <section className="mt-5">
                 <div>
                     <h2>Latest</h2>
                 </div>
                 <article className="preview">
                     <PreviewCards key={latestMovie.title} movie={latestMovie} />
                 </article>
-            </section>
+            </section> */}
         </main>
     );
 }
